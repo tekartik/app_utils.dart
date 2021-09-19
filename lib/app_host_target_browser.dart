@@ -31,9 +31,9 @@ class BrowserLocationInfo implements LocationInfo {
 
 LocationInfo? _locationInfo;
 
-LocationInfo? get locationInfo =>
+LocationInfo get locationInfo =>
     _locationInfo ??
     () {
       _locationInfo = BrowserLocationInfo(window.location);
       return _locationInfo;
-    }();
+    }()!;
