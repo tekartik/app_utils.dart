@@ -3,7 +3,6 @@
 import 'package:dev_test/test.dart';
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
-import 'package:tekartik_app_utils/app_host_target.dart';
 import 'package:tekartik_app_utils/app_host_target_mock.dart';
 
 void main() {
