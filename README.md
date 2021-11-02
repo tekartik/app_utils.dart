@@ -7,7 +7,7 @@ Various web app utilities - to deprecate
 ```yaml
   tekartik_app_utils:
     git:
-      url: git://github.com/tekartik/app_utils.dart
-      ref: null_safety
+      url: https://github.com/tekartik/app_utils.dart
+      ref: dart2_3
     version: '>=0.1.0'
 ```

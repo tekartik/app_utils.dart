@@ -11,23 +11,23 @@ environment:
 dependencies:
   tekartik_platform_browser:
     git:
-      url: git://github.com/tekartik/platform.dart
+      url: https://github.com/tekartik/platform.dart
       path: platform_browser
-      ref: null_safety
+      ref: dart2_3
   tekartik_browser_utils:
     git:
-      url: git://github.com/tekartik/browser_utils.dart
-      ref: null_safety
+      url: https://github.com/tekartik/browser_utils.dart
+      ref: dart2_3
     version: '>=0.6.8'
   tekartik_common_utils:
     git:
-      url: git://github.com/tekartik/common_utils.dart
-      ref: null_safety
+      url: https://github.com/tekartik/common_utils.dart
+      ref: dart2_3
     version: '>=0.10.6'
   tekartik_build_utils:
     git:
-      url: git://github.com/tekartik/build_utils.dart
-      ref: null_safety
+      url: https://github.com/tekartik/build_utils.dart
+      ref: dart2_3
     version: '>=0.6.5'
   quiver: any
 
@@ -37,17 +37,17 @@ dev_dependencies:
   dev_test: any
   chrome_travis:
     git:
-      url: git://github.com/tekartik/chrome_travis.dart
-      ref: null_safety
+      url: https://github.com/tekartik/chrome_travis.dart
+      ref: dart2_3
   tekartik_bootstrap:
     git:
-      url: git://github.com/tekartik/bootstrap.dart
-      ref: null_safety
+      url: https://github.com/tekartik/bootstrap.dart
+      ref: dart2_3
     version: '>=0.3.0'
   tekartik_material_asset:
     git:
-      url: git://github.com/tekartik/material_asset.dart
-      ref: null_safety
+      url: https://github.com/tekartik/material_asset.dart
+      ref: dart2_3
     version: '>=0.3.3'
   build_runner: '>=0.9.0'
   build_test: '>=0.10.2'
