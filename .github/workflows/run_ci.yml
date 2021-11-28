@@ -1,6 +1,7 @@
 name: Run CI
 on:
   push:
+  workflow_dispatch:
   schedule:
     - cron: '0 0 * * 0'  # every sunday at midnight
 
@@ -18,12 +19,9 @@ jobs:
         dart: [stable, beta, dev]
     steps:
       - uses: actions/checkout@v2
-      - uses: dart-lang/setup-dart@v1
+      - uses: dart-lang/setup-dart@v1.3
         with:
           sdk: ${{ matrix.dart }}
-      # - uses: cedx/setup-dart@v2
-      #  with:
-      #    release-channel: ${{ matrix.dart }}
       - run: dart --version
       - run: dart pub get
       - run: dart run tool/run_ci.dart
