@@ -30,7 +30,7 @@ dependencies:
       ref: dart2_3
     version: '>=0.6.5'
   quiver: any
-
+  js:
 dev_dependencies:
   process_run: '>=0.10.0+1'
   test: any
