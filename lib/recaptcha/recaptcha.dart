@@ -40,8 +40,8 @@ class GReCaptchaExecuteParams {
 }
 
 class GReCaptcha {
-  Future get ready {
-    var completer = Completer();
+  Future<void> get ready {
+    var completer = Completer<void>();
     js.grecaptcha.ready(allowInterop(([_]) {
       completer.complete();
     }));
@@ -55,7 +55,7 @@ class GReCaptcha {
 
   void render(String id, GReCaptchaRenderParams params) {
     var jsCallback = (params.callback != null)
-        ? (allowInterop(([token, param1, param2]) {
+        ? (allowInterop(([Object? token, Object? param1, Object? param2]) {
             params.callback!(token?.toString());
           }))
         : null;
@@ -69,7 +69,7 @@ class GReCaptcha {
     var jsParams = js.GReCaptchaExecuteParams(action: params.action);
 
     final token =
-        await promiseToFuture(js.grecaptcha.execute(siteKey, jsParams))
+        await promiseToFuture<Object?>(js.grecaptcha.execute(siteKey, jsParams))
             as String;
     return token;
   }
