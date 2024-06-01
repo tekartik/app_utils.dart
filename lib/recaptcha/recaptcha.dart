@@ -1,4 +1,6 @@
 // bool isRecaptchaOn
+import 'dart:html';
+
 import 'package:tekartik_app_utils/recaptcha/src/recaptcha_interop.dart' as js;
 import 'package:tekartik_browser_utils/browser_utils_import.dart';
 
