@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:quiver/strings.dart';
 import 'package:tekartik_browser_utils/browser_utils_import.dart';
 

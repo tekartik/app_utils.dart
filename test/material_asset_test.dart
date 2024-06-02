@@ -1,4 +1,6 @@
 @TestOn('browser')
+library;
+
 import 'package:tekartik_app_utils/material_asset/loader.dart';
 import 'package:test/test.dart';
 

@@ -1,4 +1,4 @@
-import 'package:tekartik_browser_utils/browser_utils_import.dart';
+import 'dart:html';
 
 class PreOutput {
   PreOutput({String? id, PreElement? preElement}) {
@@ -11,6 +11,7 @@ class PreOutput {
       _pre ??= querySelector('#$id') as PreElement?;
     }
   }
+
   PreElement? _pre;
 
   void write(Object msg) {
