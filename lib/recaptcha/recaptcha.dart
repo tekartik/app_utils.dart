@@ -1,8 +1,10 @@
 // bool isRecaptchaOn
+import 'dart:async';
 import 'dart:html';
 
+import 'package:js/js.dart';
 import 'package:tekartik_app_utils/recaptcha/src/recaptcha_interop.dart' as js;
-import 'package:tekartik_browser_utils/browser_utils_import.dart';
+import 'package:tekartik_browser_utils/js_loader_utils.dart';
 
 typedef GReCaptchaValidateFunction = void Function(String? token);
 

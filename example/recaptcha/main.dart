@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:tekartik_app_utils/preoutput/pre_output.dart';
 import 'package:tekartik_app_utils/recaptcha/recaptcha.dart';
-import 'package:tekartik_browser_utils/browser_utils_import.dart';
+import 'package:tekartik_common_utils/common_utils_import.dart';
 
 Future main() async {
   // querySelector('#output').text = 'Your Dart app is running.';

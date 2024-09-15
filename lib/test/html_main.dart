@@ -1,7 +1,4 @@
-import 'dart:html';
-
-import 'package:quiver/strings.dart';
-import 'package:tekartik_browser_utils/browser_utils_import.dart';
+import 'package:web/web.dart';
 
 late App app;
 
@@ -15,20 +12,23 @@ class App {
   late Element holder;
 
   void main() {
-    holder = DivElement();
-    final ul = UListElement();
+    holder = HTMLDivElement();
+    final ul = HTMLUListElement();
     //document.body.append(holder);
-    document.body!.querySelectorAll('a').forEach((Element element) {
-      final anchorElement = element as AnchorElement;
+    var nodeList = document.body!.querySelectorAll('a');
+    for (var i = 0; i < nodeList.length; i++) {
+      var element = nodeList.item(i);
+
+      final anchorElement = element as HTMLAnchorElement;
       final href = anchorElement.href;
       var title = anchorElement.text;
-      if (isEmpty(title)) {
+      if (title.isEmpty) {
         title = href;
       }
 
-      final li = LIElement();
+      final li = HTMLLIElement();
 
-      final newAnchor = AnchorElement()
+      final newAnchor = HTMLAnchorElement()
         // ignore: unsafe_html
         ..href = href
         ..text = title;
@@ -37,10 +37,10 @@ class App {
 
       // remove ourself
       anchorElement.remove();
-    });
+    }
     holder.append(ul);
     document.body!.append(holder);
 
-    setHidden(document.body!, false);
+    document.body!.hidden = null;
   }
 }

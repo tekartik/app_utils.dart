@@ -1,6 +1,8 @@
 import 'dart:html';
+import 'dart:js_interop';
 
-import 'package:tekartik_browser_utils/browser_utils_import.dart';
+import 'package:tekartik_common_utils/async_utils.dart';
+import 'package:web/web.dart';
 
 Splash splash = Splash();
 
@@ -13,14 +15,17 @@ NodeTreeSanitizer nullTreeSanitizer = _NullTreeSanitizer();
 
 Element spinnerElement() {
   // ignore: unsafe_html
-  final element = Element.html('''
+  final element = HTMLDivElement()
+    ..setHTMLUnsafe('''
   <div class="tka-spinner-svg-wrapper" width="65px" height="65px">
 <svg class="tka-spinner-svg" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
   <circle class="tka-spinner-svg-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
   </svg>
   </div>
-''', treeSanitizer: nullTreeSanitizer);
-  return element;
+'''
+        .trim()
+        .toJS);
+  return element.firstChild as Element;
 }
 
 class Splash {
@@ -49,8 +54,8 @@ class Splash {
     if (_splashElement == null) {
       _splashElement = document.getElementById('tka_splash');
       if (_splashElement != null) {
-        _splashElement!.children.add(spinnerElement());
-        _splashElement!.on['transitionend'].listen(_removeSplashElement);
+        _splashElement!.appendChild(spinnerElement());
+        _splashElement!.onTransitionEnd.listen(_removeSplashElement);
       }
     }
     if (msTimeout != null) {
@@ -68,7 +73,7 @@ class Splash {
       if (elapsed < delayMin) {
         await sleep(delayMin - elapsed);
       }
-      document.body!.classes.remove('tka-loading');
+      document.body!.classList.remove('tka-loading');
       await sleep(_minTransitionDuration); // transition delay
       _removeSplashElement();
     }

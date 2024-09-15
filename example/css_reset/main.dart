@@ -1,5 +1,5 @@
 import 'package:tekartik_app_utils/css_app_reset/loader.dart';
-import 'package:tekartik_browser_utils/browser_utils_import.dart';
+import 'package:tekartik_common_utils/common_utils_import.dart';
 
 Future main() async {
   //devPrint('hi');
