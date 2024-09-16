@@ -1,5 +1,11 @@
+@Deprecated(
+    'Use PreOutput from package:tekartik_app_utils/preoutput/pre_output_interop.dart')
+library;
+
 import 'dart:html';
 
+@Deprecated(
+    'Use PreOutput from package:tekartik_app_utils/preoutput/pre_output_interop.dart')
 class PreOutput {
   PreOutput({String? id, PreElement? preElement}) {
     if (preElement != null) {
