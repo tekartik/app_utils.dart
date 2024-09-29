@@ -1,4 +1,4 @@
-library uri_utils_tests;
+library;
 
 import 'package:test/test.dart';
 

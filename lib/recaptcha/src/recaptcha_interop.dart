@@ -1,5 +1,5 @@
 @JS()
-library tekartik_app_utils.recaptcha_interop;
+library;
 
 import 'package:js/js.dart';
 
