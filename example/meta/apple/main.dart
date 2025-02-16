@@ -1,9 +1,9 @@
-import 'dart:html';
+import 'package:web/web.dart' as web;
 
-PreElement? output;
+final output = web.document.getElementById('output') as web.HTMLPreElement;
+
 void message(String msg) {
-  output ??= querySelector('#output') as PreElement?;
-  output!.text = '${output!.text}$msg\n';
+  output.textContent = '${output.textContent}$msg\n';
 }
 
 void main() {

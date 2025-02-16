@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use_from_same_package
+
 import 'dart:async';
 
 import 'package:tekartik_app_utils/preoutput/pre_output_interop.dart';

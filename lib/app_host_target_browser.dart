@@ -1,39 +1,6 @@
-import 'dart:html';
-
-import 'app_host_target.dart';
+@Deprecated('Use app_host_target_web dart instead')
+library;
 
 export 'app_host_target.dart';
 
-class BrowserLocationInfo implements LocationInfo {
-  Location location;
-  @override
-  Map<String, String>? arguments;
-
-  BrowserLocationInfo(this.location) {
-    arguments = locationSearchGetArguments(location.search);
-  }
-
-  @override
-  String get host => location.host;
-
-  @override
-  String? get path => location.pathname;
-
-  @override
-  String toString() {
-    final map = <String, dynamic>{'host': host, 'path': path};
-    if (arguments!.isNotEmpty) {
-      map['arguments'] = arguments;
-    }
-    return map.toString();
-  }
-}
-
-LocationInfo? _locationInfo;
-
-LocationInfo get locationInfo =>
-    _locationInfo ??
-    () {
-      _locationInfo = BrowserLocationInfo(window.location);
-      return _locationInfo;
-    }()!;
+export 'src/compat/app_host_target_browser_compat.dart';

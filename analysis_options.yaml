@@ -1,7 +1,2 @@
 # tekartik analysis_options extension to pedantic
 include: package:tekartik_lints/strict.yaml
-
-# remove unsafe_html rules
-linter:
-  rules:
-    unsafe_html: false

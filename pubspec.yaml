@@ -6,7 +6,7 @@ publish_to: none
 #homepage: https://www.example.com
 
 environment:
-  sdk: ^3.5.0
+  sdk: ^3.6.0
 
 dependencies:
   tekartik_platform_browser:
@@ -32,9 +32,9 @@ dependencies:
   js:
   web: '>=0.5.0'
 dev_dependencies:
-  process_run: '>=0.10.0+1'
-  test: any
-  dev_build: any
+  process_run: ">=1.2.1+1"
+  test: ">=1.24.0"
+  dev_build: ">=1.1.0+2"
   tekartik_bootstrap:
     git:
       url: https://github.com/tekartik/bootstrap.dart
@@ -45,9 +45,9 @@ dev_dependencies:
       url: https://github.com/tekartik/material_asset.dart
       ref: dart3a
     version: '>=0.3.3'
-  build_runner: '>=0.9.0'
+  build_runner: ">=2.4.13"
   build_test: '>=0.10.2'
-  build_web_compilers: '>=0.4.0'
+  build_web_compilers: ">=4.0.11"
 
 dependency_overrides:
   web: '>=1.0.0'
