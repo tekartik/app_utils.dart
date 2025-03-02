@@ -15,14 +15,14 @@ class PreOutput {
   late HTMLPreElement _pre;
 
   void write(Object msg) {
-    _pre.text = '${_pre.textContent ?? ''}$msg';
+    _pre.textContent = '${_pre.textContent ?? ''}$msg';
   }
 
   void writeln(Object msg) {
-    _pre.text = '${_pre.textContent ?? ''}$msg\n';
+    _pre.textContent = '${_pre.textContent ?? ''}$msg\n';
   }
 
   void clear() {
-    _pre.text = '';
+    _pre.textContent = '';
   }
 }
