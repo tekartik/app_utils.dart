@@ -48,9 +48,11 @@ class GReCaptchaExecuteParams {
 class GReCaptcha {
   Future<void> get ready {
     var completer = Completer<void>();
-    js.grecaptcha.ready(allowInterop(([_]) {
-      completer.complete();
-    }));
+    js.grecaptcha.ready(
+      allowInterop(([_]) {
+        completer.complete();
+      }),
+    );
     return completer.future;
   }
 
@@ -60,18 +62,23 @@ class GReCaptcha {
   }
 
   void render(String id, GReCaptchaRenderParams params) {
-    var jsCallback = (params.callback != null)
-        ? (allowInterop(([Object? token, Object? param1, Object? param2]) {
-            params.callback!(token?.toString());
-          }))
-        : null;
+    var jsCallback =
+        (params.callback != null)
+            ? (allowInterop(([Object? token, Object? param1, Object? param2]) {
+              params.callback!(token?.toString());
+            }))
+            : null;
     var jsParams = js.GReCaptchaRenderParams(
-        sitekey: params.siteKey, callback: jsCallback);
+      sitekey: params.siteKey,
+      callback: jsCallback,
+    );
     js.grecaptcha.render(id, jsParams);
   }
 
   Future<String> execute(
-      String? siteKey, GReCaptchaExecuteParams params) async {
+    String? siteKey,
+    GReCaptchaExecuteParams params,
+  ) async {
     var jsParams = js.GReCaptchaExecuteParams(action: params.action);
 
     final token =
@@ -83,8 +90,9 @@ class GReCaptcha {
 
 final grecaptcha = GReCaptcha();
 
-JavascriptScriptLoader _loader =
-    JavascriptScriptLoader('https://www.google.com/recaptcha/api.js');
+JavascriptScriptLoader _loader = JavascriptScriptLoader(
+  'https://www.google.com/recaptcha/api.js',
+);
 
 Future grecaptchaLoadJs() async {
   await _loader.load();
@@ -95,29 +103,35 @@ const String _defaultContainerId = 'recaptcha_container';
 
 /// Insert a captcha V2 item and wait for
 /// return a token once validated
-Future<String> grecaptchaWait(
-        {String? siteKey,
-        String containerId = _defaultContainerId,
-        String widgetId = _defaultWidgetId}) =>
-    grecaptchaV2Wait(
-        siteKey: siteKey, containerId: containerId, widgetId: widgetId);
+Future<String> grecaptchaWait({
+  String? siteKey,
+  String containerId = _defaultContainerId,
+  String widgetId = _defaultWidgetId,
+}) => grecaptchaV2Wait(
+  siteKey: siteKey,
+  containerId: containerId,
+  widgetId: widgetId,
+);
 
-Future<String> grecaptchaV2Wait(
-    {String? siteKey,
-    String containerId = _defaultContainerId,
-    String widgetId = _defaultWidgetId}) async {
+Future<String> grecaptchaV2Wait({
+  String? siteKey,
+  String containerId = _defaultContainerId,
+  String widgetId = _defaultWidgetId,
+}) async {
   // await loadJs();
   await grecaptcha.ready;
   var completer = Completer<String>();
   var element = grecaptcha.createElement(widgetId);
   querySelector('#$containerId')!.children.add(element);
   grecaptcha.render(
-      widgetId,
-      GReCaptchaRenderParams(
-          siteKey: siteKey,
-          callback: (token) {
-            completer.complete(token);
-          }));
+    widgetId,
+    GReCaptchaRenderParams(
+      siteKey: siteKey,
+      callback: (token) {
+        completer.complete(token);
+      },
+    ),
+  );
   return completer.future;
 }
 

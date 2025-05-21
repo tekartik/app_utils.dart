@@ -12,8 +12,10 @@ class GReCaptchaRenderParams {
 
   external Function get callback;
 
-  external factory GReCaptchaRenderParams(
-      {String? sitekey, Function? callback});
+  external factory GReCaptchaRenderParams({
+    String? sitekey,
+    Function? callback,
+  });
 }
 
 @JS()
@@ -32,7 +34,9 @@ class GReCaptcha {
   external void ready(Function readyFunction);
 
   external Object /* Promise */ execute(
-      String? action, GReCaptchaExecuteParams params);
+    String? action,
+    GReCaptchaExecuteParams params,
+  );
 }
 
 @JS('grecaptcha')

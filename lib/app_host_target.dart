@@ -94,7 +94,8 @@ class AppHostTarget extends StringEnum {
 
   static AppHostTarget? fromLocationInfo(LocationInfo? locationInfo) {
     if (locationInfo != null) {
-      final target = fromArguments(locationInfo.arguments) ??
+      final target =
+          fromArguments(locationInfo.arguments) ??
           fromHostAndPath(locationInfo.host, locationInfo.path);
       return target;
     }

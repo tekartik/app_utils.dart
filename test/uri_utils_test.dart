@@ -30,31 +30,33 @@ String urlNonAbsolutePath(String path) {
 }
 
 String urlChangeQueryParameters(
-    String url, Map<String, String> newQueryParams) {
+  String url,
+  Map<String, String> newQueryParams,
+) {
   final uri = Uri.parse(url);
   return uriChangeQueryParameters(uri, newQueryParams).toString();
 }
 
 Uri uriChangeQueryParameters(Uri uri, Map<String, String> newQueryParams) {
   return Uri(
-      scheme: uri.scheme,
-      userInfo: uri.userInfo,
-      host: uri.host,
-      port: uri.port,
-      path: uri.path //
-      ,
-      queryParameters: newQueryParams //
-      ,
-      fragment: null);
+    scheme: uri.scheme,
+    userInfo: uri.userInfo,
+    host: uri.host,
+    port: uri.port,
+    path: uri.path, //
+    queryParameters: newQueryParams, //
+    fragment: null,
+  );
 }
 
 Uri uriNoParamNoFragment(Uri uri) {
   return Uri(
-      scheme: uri.scheme,
-      userInfo: uri.userInfo, //
-      host: uri.host,
-      port: uri.port, //
-      path: uri.path);
+    scheme: uri.scheme,
+    userInfo: uri.userInfo, //
+    host: uri.host,
+    port: uri.port, //
+    path: uri.path,
+  );
 }
 
 String urlNoParamNoFragment(String url) {
@@ -67,10 +69,11 @@ String urlRoot(String url) {
 
 Uri uriRoot(Uri uri) {
   return Uri(
-      scheme: uri.scheme,
-      userInfo: uri.userInfo, //
-      host: uri.host,
-      port: uri.port);
+    scheme: uri.scheme,
+    userInfo: uri.userInfo, //
+    host: uri.host,
+    port: uri.port,
+  );
 }
 
 String urlHashFix(String hash) {
@@ -99,7 +102,9 @@ void defineTests() {
   });
 
   test('urlRoot', () {
-    expect(urlRoot('http://localhost:8080/gsitesw.html#alexcavaquinho'),
-        'http://localhost:8080');
+    expect(
+      urlRoot('http://localhost:8080/gsitesw.html#alexcavaquinho'),
+      'http://localhost:8080',
+    );
   });
 }

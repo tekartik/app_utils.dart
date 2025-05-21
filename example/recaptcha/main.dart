@@ -12,7 +12,8 @@ Future main() async {
   final output = PreOutput(id: 'output');
   output.writeln('waiting for non-robot');
   await grecaptchaLoadJs();
-  var token =
-      await grecaptchaWait(siteKey: '6Lc4rI0UAAAAAK1B-0lJR_svGSMedTwuWk4jADxC');
+  var token = await grecaptchaWait(
+    siteKey: '6Lc4rI0UAAAAAK1B-0lJR_svGSMedTwuWk4jADxC',
+  );
   output.writeln('token: $token');
 }
