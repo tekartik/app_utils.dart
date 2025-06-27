@@ -62,12 +62,11 @@ class GReCaptcha {
   }
 
   void render(String id, GReCaptchaRenderParams params) {
-    var jsCallback =
-        (params.callback != null)
-            ? (allowInterop(([Object? token, Object? param1, Object? param2]) {
-              params.callback!(token?.toString());
-            }))
-            : null;
+    var jsCallback = (params.callback != null)
+        ? (allowInterop(([Object? token, Object? param1, Object? param2]) {
+            params.callback!(token?.toString());
+          }))
+        : null;
     var jsParams = js.GReCaptchaRenderParams(
       sitekey: params.siteKey,
       callback: jsCallback,

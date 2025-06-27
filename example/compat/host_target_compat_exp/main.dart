@@ -7,7 +7,8 @@ import 'dart:html';
 import 'package:tekartik_app_utils/app_host_target_browser.dart';
 
 void main() {
-  querySelector('#output')!.text = '''
+  querySelector('#output')!.text =
+      '''
 $locationInfo
 ${AppHostTarget.fromLocationInfo(locationInfo)}
 ''';

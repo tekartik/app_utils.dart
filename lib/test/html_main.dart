@@ -28,11 +28,10 @@ class App {
 
       final li = HTMLLIElement();
 
-      final newAnchor =
-          HTMLAnchorElement()
-            // ignore: unsafe_html
-            ..href = href
-            ..text = title;
+      final newAnchor = HTMLAnchorElement()
+        // ignore: unsafe_html
+        ..href = href
+        ..text = title;
       li.append(newAnchor);
       ul.append(li);
 
