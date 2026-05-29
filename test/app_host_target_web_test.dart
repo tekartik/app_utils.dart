@@ -14,10 +14,12 @@ void main() {
     }
     if (locationInfoOrNull == null) {
       test('no locationInfoWeb', () {
+        // ignore: avoid_print
         print('no locationInfoWeb available');
       });
     } else {
       test('locationInfoWeb', () {
+        // ignore: avoid_print
         print('locationInfoWeb: $locationInfoWeb');
       });
     }

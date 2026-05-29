@@ -1,12 +1,13 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:tekartik_build_utils/webdev/webdev.dart';
 
 Future main() async {
   final port = 8060;
-  print('Serving `example` on http://localhost:$port');
-  print('<http://localhost:$port/recaptcha/index.html>');
-  print('<http://localhost:$port/recaptcha/v3/index.html>');
+  stdout.writeln('Serving `example` on http://localhost:$port');
+  stdout.writeln('<http://localhost:$port/recaptcha/index.html>');
+  stdout.writeln('<http://localhost:$port/recaptcha/v3/index.html>');
   await serve([
     'example:$port',
     //'--hot-reload',
